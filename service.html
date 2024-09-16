@@ -35,6 +35,13 @@
         alert('Back button pressed again with new');
         preventBack();  // Re-push state to prevent back navigation
     };
+
+        window.addEventListener('keydown', function(e) {
+        // Check for Alt + Left Arrow (back navigation)
+        if (e.altKey && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+            e.preventDefault();
+        }
+    });
 </script>
 </body>
 </html>
