@@ -22,14 +22,19 @@
         <p>We provide a variety of services to cater to your needs. Contact us for more information.</p>
     </main>
     <script>
-        // Push a fake state so the back button works properly
+    // Function to handle back button prevention
+    function preventBack() {
         window.history.pushState(null, null, window.location.href);
+    }
 
-        // Prevent back button from navigating away from this page
-        window.onpopstate = function(event) {
-            alert('popstate')
-            window.history.pushState(null, null, window.location.href);
-        };
-    </script>
+    // Initial call to push a state so that back button doesn't navigate away
+    preventBack();
+
+    // Listen for popstate event and re-push state to prevent navigation
+    window.onpopstate = function(event) {
+        alert('Back button pressed');
+        preventBack();  // Re-push state to prevent back navigation
+    };
+</script>
 </body>
 </html>
