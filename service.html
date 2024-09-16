@@ -27,6 +27,7 @@
 
         // Prevent back button from navigating away from this page
         window.onpopstate = function(event) {
+            alert('popstate')
             window.history.pushState(null, null, window.location.href);
         };
     </script>
