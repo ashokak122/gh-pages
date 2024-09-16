@@ -18,13 +18,13 @@
     </header>
 
     <main>
-        <h1>lala one more time Our Services updated with new</h1>
+        <h1>one more time Our Services updated with new</h1>
         <p>We provide a variety of services to cater to your needs. Contact us for more information.</p>
     </main>
     <script>
     // Function to handle back button prevention
     function preventBack() {
-        window.history.pushState(null, null, window.location.href);
+        window.history.pushState(null, null, window.location.href + "#noback");
     }
 
     // Initial call to push a state so that back button doesn't navigate away
@@ -36,11 +36,7 @@
         preventBack();  // Re-push state to prevent back navigation
     };
 
-        window.addEventListener('keydown', function(e) {
-        // Check for Alt + Left Arrow (back navigation)
-        if (e.altKey && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
-            e.preventDefault();
-        }
+        
     });
 </script>
 </body>
