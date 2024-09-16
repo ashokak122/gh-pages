@@ -18,13 +18,13 @@
     </header>
 
     <main>
-        <h1>Our Services updated</h1>
+        <h1>Our Services updated with new</h1>
         <p>We provide a variety of services to cater to your needs. Contact us for more information.</p>
     </main>
     <script>
     // Function to handle back button prevention
     function preventBack() {
-        window.history.pushState(null, null, window.location.href);
+        window.history.pushState(null, null, window.location.href + "#noback");
     }
 
     // Initial call to push a state so that back button doesn't navigate away
@@ -32,7 +32,7 @@
 
     // Listen for popstate event and re-push state to prevent navigation
     window.onpopstate = function(event) {
-        alert('Back button pressed');
+        alert('Back button pressed again with new');
         preventBack();  // Re-push state to prevent back navigation
     };
 </script>
