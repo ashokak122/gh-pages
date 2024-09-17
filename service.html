@@ -26,9 +26,11 @@
     </main>
     <script>
       // Function to prevent back navigation
-      function preventBack() {
-        window.history.pushState(null, null, window.location.href);
-      }
+      //   function preventBack() {
+      window.history.pushState(null, null, window.location.href);
+      sessionStorage.ajNavStarted = true;
+      console.log(sessionStorage.ajNavStarted);
+      //   }
 
       preventBack();
 
@@ -36,10 +38,17 @@
         alert("load event");
         setTimeout(function () {
           alert("set timeout");
-          window.addEventListener("popstate", function () {
-            alert("Back button pressed!");
-            preventBack();
-          });
+          window.addEventListener(
+            "popstate",
+            function (e) {
+              alert("Back button pressed!");
+              if (sessionStorage.ajNavStarted) {
+                location.href = e.state === null ? location.href : e.state;
+              }
+              // preventBack();
+            },
+            false
+          );
         }, 2000);
       });
     </script>
