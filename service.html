@@ -18,9 +18,7 @@
     </header>
 
     <main>
-      <h1>
-        Removed settimeout log instaed alert timeout Services updated with new
-      </h1>
+      <h1>Prevent back function Services updated with new</h1>
       <p>
         We provide a variety of services to cater to your needs. Contact us for
         more information.
@@ -28,20 +26,14 @@
     </main>
     <script>
       // Function to prevent back navigation
-      //   function preventBack() {
-      window.history.pushState(null, null, window.location.href);
-      sessionStorage.ajNavStarted = true;
-      console.log(sessionStorage.ajNavStarted);
-      //   }
+      function preventBack() {
+        window.history.pushState(null, null, window.location.href);
+        sessionStorage.ajNavStarted = true;
+        console.log(sessionStorage.ajNavStarted);
+      }
 
-      //   preventBack();
+      preventBack();
 
-      //   window.addEventListener("load", function () {
-      // window.history.pushState(null, null, window.location.href);
-      // console.log("load event");
-      // setTimeout(function () {
-      //   window.history.pushState(null, null, window.location.href);
-      //   console.log("set timeout");
       window.addEventListener(
         "popstate",
         function (e) {
@@ -49,12 +41,12 @@
           if (sessionStorage.ajNavStarted) {
             location.href = e.state === null ? location.href : e.state;
           }
-          // preventBack();
+          window.location.href =
+            "https://ashokak122.github.io/gh-pages/index.html";
+          //   preventBack();
         },
         false
       );
-      // }, 100);
-      //   });
     </script>
   </body>
 </html>
