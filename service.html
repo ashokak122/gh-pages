@@ -3,12 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Back Button Prevention Example</title>
+    <title>Service - My Website</title>
   </head>
   <body>
-    <h1>Welcome to My Website</h1>
-    <p>Use the navigation or try pressing the back button!</p>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="service.html">Service</a></li>
+          <li><a href="support.html">Customer Support</a></li>
+        </ul>
+      </nav>
+    </header>
 
+    <main>
+      <h1>Are ARE Services updated with new</h1>
+      <p>
+        We provide a variety of services to cater to your needs. Contact us for
+        more information.
+      </p>
+    </main>
     <script>
       // Check if this is a history state navigation (i.e., the back button is pressed)
       var popped = "state" in window.history && window.history.state !== null,
