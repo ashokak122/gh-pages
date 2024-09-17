@@ -18,7 +18,7 @@
     </header>
 
     <main>
-      <h1>3 time push timeout Services updated with new</h1>
+      <h1>console log instaed alert timeout Services updated with new</h1>
       <p>
         We provide a variety of services to cater to your needs. Contact us for
         more information.
@@ -35,15 +35,15 @@
       //   preventBack();
 
       window.addEventListener("load", function () {
-        window.history.pushState(null, null, window.location.href);
-        alert("load event");
+        // window.history.pushState(null, null, window.location.href);
+        console.log("load event");
         setTimeout(function () {
-          window.history.pushState(null, null, window.location.href);
-          alert("set timeout");
+          //   window.history.pushState(null, null, window.location.href);
+          console.log("set timeout");
           window.addEventListener(
             "popstate",
             function (e) {
-              alert("Back button pressed!");
+              console.log("Back button pressed!");
               if (sessionStorage.ajNavStarted) {
                 location.href = e.state === null ? location.href : e.state;
               }
