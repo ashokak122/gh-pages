@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service - My Website</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="service.html">Service</a></li>
-                <li><a href="support.html">Customer Support</a></li>
-            </ul>
-        </nav>
-    </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Back Button Prevention Example</title>
+  </head>
+  <body>
+    <h1>Welcome to My Website</h1>
+    <p>Use the navigation or try pressing the back button!</p>
 
-    <main>
-        <h1> one more time Our Services updated with new</h1>
-        <p>We provide a variety of services to cater to your needs. Contact us for more information.</p>
-    </main>
     <script>
-    // Function to handle back button prevention
-    function preventBack() {
+      // Check if this is a history state navigation (i.e., the back button is pressed)
+      var popped = "state" in window.history && window.history.state !== null,
+        initialURL = location.href;
+
+      // Function to prevent back navigation
+      function preventBack() {
         window.history.pushState(null, null, window.location.href);
-    }
+      }
 
-    // Initial call to push a state so that back button doesn't navigate away
-    preventBack();
+      // Initial state push to prevent back navigation
+      preventBack();
 
-    // Listen for popstate event and re-push state to prevent navigation
-    window.onpopstate = function(event) {
-        alert('Back button pressed again with new');
-        preventBack();  // Re-push state to prevent back navigation
-    };
+      // Handle popstate event (triggered by back button press)
+      window.onpopstate = function (event) {
+        if (!popped && location.href === initialURL) {
+          // This condition is true only on the initial popstate, i.e., when back button is pressed
+          alert("Back button pressed! Navigating to the home page.");
+          // Optionally navigate to the home page or take any other action
+          window.location.href = initialURL; // Go back to the home page or a different page
+        } else {
+          // Push the state again to keep the user on the current page
+          preventBack();
+        }
+      };
 
-        
-   
-</script>
-</body>
+      // Optionally prevent keyboard shortcuts for back/forward navigation (Alt + Arrow keys)
+      window.addEventListener("keydown", function (e) {
+        if (e.altKey && (e.key === "ArrowLeft" || e.key === "ArrowRight")) {
+          e.preventDefault();
+        }
+      });
+    </script>
+  </body>
 </html>
