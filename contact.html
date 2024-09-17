@@ -18,8 +18,28 @@
     </header>
 
     <main>
-        <h1>Contact Us</h1>
+        <h1>Hello Contact Us</h1>
         <p>For general inquiries, please reach out via email at <a href="mailto:info@example.com">info@example.com</a>.</p>
     </main>
+    <script>
+        (function() {
+    // There's nothing to do for older browsers ;)
+    if (!window.addEventListener)
+        return;
+    var blockPopstateEvent = document.readyState!="complete";
+    window.addEventListener("load", function() {
+        // The timeout ensures that popstate-events will be unblocked right
+        // after the load event occured, but not in the same event-loop cycle.
+        setTimeout(function(){ blockPopstateEvent = false; }, 0);
+    }, false);
+    window.addEventListener("popstate", function(evt) {
+        alert('new method added')
+        if (blockPopstateEvent && document.readyState=="complete") {
+            evt.preventDefault();
+            evt.stopImmediatePropagation();
+        }
+    }, false);
+})();
+    </script>
 </body>
 </html>
