@@ -18,7 +18,7 @@
     </header>
 
     <main>
-      <h1>Prevent back function Services updated with new</h1>
+      <h1>removed for testing ajNavStarted Services updated with new</h1>
       <p>
         We provide a variety of services to cater to your needs. Contact us for
         more information.
@@ -28,8 +28,8 @@
       // Function to prevent back navigation
       function preventBack() {
         window.history.pushState(null, null, window.location.href);
-        sessionStorage.ajNavStarted = true;
-        console.log(sessionStorage.ajNavStarted);
+        // sessionStorage.ajNavStarted = true;
+        console.log("sessionStorage.ajNavStarted", sessionStorage.ajNavStarted);
       }
 
       preventBack();
@@ -38,9 +38,9 @@
         "popstate",
         function (e) {
           console.log("Back button pressed!");
-          if (sessionStorage.ajNavStarted) {
-            location.href = e.state === null ? location.href : e.state;
-          }
+          //   if (sessionStorage.ajNavStarted) {
+          //     location.href = e.state === null ? location.href : e.state;
+          //   }
           window.location.href =
             "https://ashokak122.github.io/gh-pages/index.html";
           //   preventBack();
