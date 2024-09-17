@@ -18,7 +18,7 @@
     </header>
 
     <main>
-      <h1>removed for testing ajNavStarted Services updated with new</h1>
+      <h1>false removed for testing ajNavStarted Services updated with new</h1>
       <p>
         We provide a variety of services to cater to your needs. Contact us for
         more information.
@@ -34,19 +34,15 @@
 
       preventBack();
 
-      window.addEventListener(
-        "popstate",
-        function (e) {
-          console.log("Back button pressed!");
-          //   if (sessionStorage.ajNavStarted) {
-          //     location.href = e.state === null ? location.href : e.state;
-          //   }
-          window.location.href =
-            "https://ashokak122.github.io/gh-pages/index.html";
-          //   preventBack();
-        },
-        false
-      );
+      window.addEventListener("popstate", function (e) {
+        console.log("Back button pressed!");
+        //   if (sessionStorage.ajNavStarted) {
+        //     location.href = e.state === null ? location.href : e.state;
+        //   }
+        window.location.href =
+          "https://ashokak122.github.io/gh-pages/index.html";
+        //   preventBack();
+      });
     </script>
   </body>
 </html>
