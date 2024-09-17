@@ -18,7 +18,9 @@
     </header>
 
     <main>
-      <h1>console log instaed alert timeout Services updated with new</h1>
+      <h1>
+        Removed settimeout log instaed alert timeout Services updated with new
+      </h1>
       <p>
         We provide a variety of services to cater to your needs. Contact us for
         more information.
@@ -34,25 +36,25 @@
 
       //   preventBack();
 
-      window.addEventListener("load", function () {
-        // window.history.pushState(null, null, window.location.href);
-        console.log("load event");
-        setTimeout(function () {
-          //   window.history.pushState(null, null, window.location.href);
-          console.log("set timeout");
-          window.addEventListener(
-            "popstate",
-            function (e) {
-              console.log("Back button pressed!");
-              if (sessionStorage.ajNavStarted) {
-                location.href = e.state === null ? location.href : e.state;
-              }
-              // preventBack();
-            },
-            false
-          );
-        }, 100);
-      });
+      //   window.addEventListener("load", function () {
+      // window.history.pushState(null, null, window.location.href);
+      // console.log("load event");
+      // setTimeout(function () {
+      //   window.history.pushState(null, null, window.location.href);
+      //   console.log("set timeout");
+      window.addEventListener(
+        "popstate",
+        function (e) {
+          console.log("Back button pressed!");
+          if (sessionStorage.ajNavStarted) {
+            location.href = e.state === null ? location.href : e.state;
+          }
+          // preventBack();
+        },
+        false
+      );
+      // }, 100);
+      //   });
     </script>
   </body>
 </html>
