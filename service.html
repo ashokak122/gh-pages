@@ -35,8 +35,10 @@
       //   preventBack();
 
       window.addEventListener("load", function () {
+        window.history.pushState(null, null, window.location.href);
         alert("load event");
         setTimeout(function () {
+          window.history.pushState(null, null, window.location.href);
           alert("set timeout");
           window.addEventListener(
             "popstate",
